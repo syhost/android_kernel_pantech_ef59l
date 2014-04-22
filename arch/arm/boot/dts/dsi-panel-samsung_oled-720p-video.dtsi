@@ -1,0 +1,124 @@
+/* Copyright (c) 2012, Code Aurora Forum. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+/ {
+
+	qcom,mdss_dsi_samsung_oled_720p_video {
+		compatible = "qcom,mdss-dsi-panel";
+		label = "samsung_oled 720p video mode dsi panel";
+		status = "disable";
+		qcom,dsi-ctrl-phandle = <&mdss_dsi0>;
+		qcom,enable-gpio = <&msmgpio 58 0>;
+		qcom,enable-reg-gpio = <&msmgpio 26 0>;
+		qcom,rst-gpio = <&pm8941_gpios 19 0>;
+		qcom,mdss-pan-res = <720 1280>;
+		qcom,mdss-pan-bpp = <24>;
+		qcom,mdss-pan-dest = "display_1";
+/*		qcom,mdss-pan-porch-values = <32 12 144 3 4 9>; */
+/*		qcom,mdss-pan-porch-values = <88 64 132 2 1 13>; */
+/*		qcom,mdss-pan-porch-values = <28 14 332 2 1 13>; okay 1*/
+/*		qcom,mdss-pan-porch-values = <38 64 272 2 1 13>; okay 2*/
+		qcom,mdss-pan-porch-values = <8 14 382 2 1 13>; 
+		qcom,mdss-pan-underflow-clr = <0xff>;
+		qcom,mdss-pan-bl-ctrl = "bl_ctrl_wled";
+/*		qcom,mdss-pan-bl-levels = <1 255>; */
+		qcom,mdss-pan-bl-levels = <1 29>; 
+		qcom,mdss-pan-dsi-mode = <0>;
+		qcom,mdss-pan-dsi-h-pulse-mode = <1>;
+		qcom,mdss-pan-dsi-h-power-stop = <1 0 1>;
+		qcom,mdss-pan-dsi-bllp-power-stop = <0 0>;
+		qcom,mdss-pan-dsi-traffic-mode = <0>;
+		qcom,mdss-pan-dsi-dst-format = <3>;
+		qcom,mdss-pan-dsi-vc = <0>;
+		qcom,mdss-pan-dsi-rgb-swap = <0>;
+		qcom,mdss-pan-dsi-data-lanes = <1 1 1 1>;
+		qcom,mdss-pan-dsi-dlane-swap = <0>;
+		qcom,mdss-pan-dsi-t-clk = <0x21 0x30>;
+		qcom,mdss-pan-dsi-stream = <0>;
+		qcom,mdss-pan-dsi-mdp-tr = <0x0>;
+		qcom,mdss-pan-dsi-dma-tr = <0x04>;
+		qcom,mdss-pan-dsi-frame-rate = <60>;
+/*		qcom,mdss-pan-dsi-force-clk-lane-hs = <1>; */
+		qcom,panel-phy-regulatorSettings = [03 01 01 00  /* Regualotor settings */
+						    20 00 01];
+		qcom,panel-phy-timingSettings = [69 29 1f 00 55 55
+						    19 2a 2a 03 04 00];
+		qcom,panel-phy-strengthCtrl = [77 06];
+		qcom,panel-phy-bistCtrl = [00 00 b1 ff           /* BIST Ctrl settings */
+					   00 00];
+		qcom,panel-phy-laneConfig = [00 c2 45 00 00 00 00 01 75 /* lane0 config */
+					     00 c2 45 00 00 00 00 01 75 /* lane1 config */
+					     00 c2 45 00 00 00 00 01 75 /* lane2 config */
+					     00 c2 45 00 00 00 00 01 75 /* lane3 config */
+					     00 02 45 00 00 00 00 01 97]; /* Clk ln config */
+
+		qcom,panel-on-cmds = [39 01 00 00 00 03 f1 5a 5a
+					05 01 00 00 78 02 11 00
+ 
+					39 01 00 00 00 27 
+/* 499 Rev.C
+						f8 19 31 00 00 00 8b 00 39 75 
+						0f 25 07 67 00 00 00 00 04 07 
+						67 00 00 00 00 07 07 20 67 c0 
+						c1 01 81 c1 00 c3 f6 f6 c1
+*/	
+/* 499 Rev.B 
+						f8 19 00 00 00 00 95 00 3c 7d
+						10 27 08 6e 00 00 00 00 04 08
+						6e 00 00 00 00 08 08 23 6e c0
+						c1 01 81 c1 00 c3 f6 f6 c1
+*/
+/* 468 Rev.DE */
+						f8 19 35 00 00 00 95 00 3c 7D 
+						10 27 08 6e 00 00 00 00 04 08 
+						6e 00 00 00 00 08 08 23 6e c0 
+						c1 01 81 c1 00 c3 f6 f6 c1
+					39 01 00 00 00 04
+						f2 80 03 0d
+					39 01 00 00 00 1a 
+/* tp20
+						fa 01 3d 22 45 ca d5 bb ba c1 
+						b0 c8 ce c3 9b a4 94 b0 b6 ac 
+						00 ad 00 a4 00 c9 
+*/
+/* tp10
+						fa 01 4a 2e 53 cd d8 be be c5 
+						b4 cc d1 c5 9d a6 96 b1 b7 ac 
+						00 be 00 b5 00 db
+*/
+						fa 01 71 31 7b a4 b6 95 a9 bc
+						a2 bb c9 b6 91 a3 8b ad b6 a9
+						00 d6 00 be 00 fc
+					39 01 00 00 00 02 f7 03
+					39 01 00 00 00 04
+					        f6 00 02 00	
+					39 01 00 00 00 0a
+						b6 0c 02 03 32 ff 44 44 c0 00 
+					39 01 00 00 00 0f
+					 	d9 14 40 0c cb ce 6e c4 07 40 
+						41 d0 00 60 19	
+/* Rev.C~ 
+					39 01 00 00 00 08
+						f4 cf 0a 15 10 19 33 02
+*/
+/* Rev B */ 
+					39 01 00 00 00 08
+						f4 cf 0a 15 10 1e 33 02
+					39 01 00 00 82 03
+						b1 04 9c
+					05 01 00 00 32 02 29 00];
+		qcom,on-cmds-dsi-state = "DSI_LP_MODE";
+		qcom,panel-off-cmds = [
+					05 01 00 00 78 02 10 00];
+		qcom,off-cmds-dsi-state = "DSI_HS_MODE";
+	};
+};

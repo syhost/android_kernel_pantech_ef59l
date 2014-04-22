@@ -1,0 +1,47 @@
+/*
+ * Copyright (c) 2012-2013, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+/* DMB_SPI : BOARD_REV >= WS10 */
+
+/ {
+
+	aliases { /* DMB_SPI */
+		spi1 = &spi_1;
+	};
+
+	spi_1: spi@f9923000 { /* DMB_SPI */
+		compatible = "qcom,spi-qup-v2";
+		reg = <0xf9923000 0x1000>;
+		interrupts = <0 95 0>;
+		spi-max-frequency = <10800000>; /* FC8150 */
+		#address-cells = <1>;
+		#size-cells = <0>;
+		dmb_spi@0{
+		  compatible = "dmb,dmb_spi";
+		  reg=<0>;
+		  spi-max-frequency = <10800000>;
+		  #spi-cpol;
+		  #spi-cpha; /* MODE 0 */
+		  #spi-cs-high;
+		  interrupt-parent = <&msmgpio>;
+		  interrupts = <74 0>;
+		  dmb,irq-gpio = <&msmgpio 74 0x00>;
+		  #interrupt-names = "irq_gpio";
+		  dmb,gpios = <&msmgpio 3 0>, /* 1SEG_SPI_CLK  */
+			  <&msmgpio 1 0>, /* 1SEG_SPI_MISO */
+			  <&msmgpio 0 0>; /* 1SEG_SPI_MOSI */
+		  dmb,cs-gpios = <&msmgpio 2 0>; /* 1SEG_SPI_CS_N */
+		  dmb,pmic_gpio = <&pm8941_gpios  18 0>; /* pmic gpio  DMB_REST */
+		};
+	};
+};

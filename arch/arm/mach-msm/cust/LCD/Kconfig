@@ -1,0 +1,550 @@
+if CUST_PANTECH_H
+
+###################################################
+# PANTECH LCD Feature Section                     #
+#                                                 #
+###################################################
+# * Defined LCD common feature                    # 
+###################################################
+config MACH_MSM8974_LCD_COMMON
+        bool
+        default y
+        select F_SKYDISP_QBUG_FIX_BACKLIGHT
+        select F_SKYDISP_BOOT_LOGO_IN_KERNEL
+        select F_SKYDISP_NO_CURSOR_IN_BOOT
+        select F_SKYDISP_LCD_RESET
+        select F_SKYDISP_LCD_FORCE_ONOFF
+	 select F_SKYDISP_FIXGPU_FALLBACK_ERROR
+
+	select F_SKYDISP_SPLASH_WLED_BUGFIX
+#	select F_SKYDISP_SHUTDOWN_BUGFIX
+	select F_SKYDISP_BACKLIGHT_DEBUG
+#if (BOARD_VER < WS20)
+	select F_SKYDISP_KEEP_BACKLIGHT_TO_KERNEL 
+#end
+	select F_SKYDISP_SILENT_BOOT
+	select F_SKYDISP_FACTORY_SLEEP_ENABLE_I
+#	select QUALCOMM_BUGFIX_TEMP_FIXED_MDP_UNDERRUN	
+	select F_SKYDISP_CMDS_CONTROL
+	select QUALCOMM_BUGFIX_KGSL_OOM
+	select F_SKYDISP_ADJUST_MDP_BANDWIDTH	
+	select QUALCOMM_VOLTE_LCDOFF_CURRENT_PATCH
+	select QUALCOMM_MDP_IOMMU_PAGEFAULT_PATCH
+	select QUALCOMM_BUGFIX_UHD_UNDERRUN
+	select QUALCOMM_BUGFIX_SURFACEFLINGER_PENDING
+###################################################
+# * Defined LCD board feature                     # 
+###################################################
+if MACH_MSM8974_SVLTE
+config DEFINE_LIST_SVLTE
+        bool
+        default y
+#        select F_SKYDISP_LCD_FORCE_ONOFF
+endif
+
+if MACH_MSM8974_CSFB
+config DEFINE_LIST_CSFB
+        bool
+        default y
+#        select F_SKYDISP_QBUG_FIX_BACKLIGHT
+endif
+
+if MACH_MSM8974_EF56S
+config DEFINE_LIST_EF56S
+        bool
+        default y
+	select F_SKYDISP_CABC_CONTROL
+	select F_SKYDISP_SHARP_FHD_VIDEO_COMMON
+	select F_SKYDISP_SHARPNESS_CTRL	
+	select F_SKYDISP_BACKLIGHT_CMDS_CTL
+	select QUALCOMM_BUGFIX_TEMP_FIXED_MIPI_CLOCK
+	select QUALCOMM_DYNAMIC_PLL_PATCH
+	select QUALCOMM_BUGFIX_SET_CLK_RATE_ON_CSS
+	select QUALCOMM_MP3_LCDOFF_CURRENT_PATCH
+	select QUALCOMM_BUGFIX_MIRACAST_RESET
+	select QUALCOMM_DEVICES_GPU_BROKEN_IMG_PATCH
+	select QUALCOMM_BUGFIX_BLUESCREEN_ENCRYPTION
+	select QUALCOMM_BUGFIX_MDP_IOMMU_PAGEFAULT
+endif
+
+if MACH_MSM8974_EF57K
+config DEFINE_LIST_EF57K
+        bool
+        default y
+	select F_SKYDISP_CABC_CONTROL
+	select F_SKYDISP_SHARP_FHD_VIDEO_COMMON
+	select QUALCOMM_BUGFIX_TEMP_FIXED_MIPI_CLOCK
+	select QUALCOMM_DYNAMIC_PLL_PATCH	
+
+endif
+
+if MACH_MSM8974_EF58L
+config DEFINE_LIST_EF58L
+        bool
+        default y
+	select F_SKYDISP_CABC_CONTROL
+	select F_SKYDISP_SHARP_FHD_VIDEO_COMMON
+	select QUALCOMM_BUGFIX_TEMP_FIXED_MIPI_CLOCK
+	select QUALCOMM_DYNAMIC_PLL_PATCH	
+endif
+
+if MACH_MSM8974_EF59S
+config DEFINE_LIST_EF59S
+        bool
+        default y
+	select F_SKYDISP_CABC_CONTROL
+       select F_SKYDISP_SHARP_FHD_VIDEO_COMMON
+       select F_SKYDISP_SHARPNESS_CTRL
+       select F_SKYDISP_BACKLIGHT_CMDS_CTL
+	select QUALCOMM_BUGFIX_TEMP_FIXED_MIPI_CLOCK
+	select QUALCOMM_BUGFIX_INTR_VIDEO_DONE_FOR_VIDEO_MODE_PANEL
+	select QUALCOMM_BUGFIX_SET_CLK_RATE_ON_CSS
+	select QUALCOMM_MP3_LCDOFF_CURRENT_PATCH
+	select QUALCOMM_DEVICES_GPU_BROKEN_IMG_PATCH
+	select QUALCOMM_BUGFIX_MIRACAST_RESET
+	select QUALCOMM_BUGFIX_BLUESCREEN_ENCRYPTION
+	select QUALCOMM_BUGFIX_MDP_IOMMU_PAGEFAULT
+endif
+
+if MACH_MSM8974_EF59K
+config DEFINE_LIST_EF59K
+        bool
+        default y
+	select F_SKYDISP_CABC_CONTROL
+       select F_SKYDISP_SHARP_FHD_VIDEO_COMMON
+       select F_SKYDISP_SHARPNESS_CTRL
+       select F_SKYDISP_BACKLIGHT_CMDS_CTL
+	select QUALCOMM_BUGFIX_TEMP_FIXED_MIPI_CLOCK
+	select QUALCOMM_BUGFIX_INTR_VIDEO_DONE_FOR_VIDEO_MODE_PANEL
+	select QUALCOMM_BUGFIX_SET_CLK_RATE_ON_CSS
+	select QUALCOMM_MP3_LCDOFF_CURRENT_PATCH
+	select QUALCOMM_DEVICES_GPU_BROKEN_IMG_PATCH
+	select QUALCOMM_BUGFIX_MIRACAST_RESET	
+	select QUALCOMM_BUGFIX_BLUESCREEN_ENCRYPTION
+	select QUALCOMM_BUGFIX_MDP_IOMMU_PAGEFAULT	
+endif
+
+if MACH_MSM8974_EF59L
+config DEFINE_LIST_EF59L
+        bool
+        default y
+	select F_SKYDISP_CABC_CONTROL
+       select F_SKYDISP_SHARP_FHD_VIDEO_COMMON
+       select F_SKYDISP_SHARPNESS_CTRL
+       select F_SKYDISP_BACKLIGHT_CMDS_CTL
+	select QUALCOMM_BUGFIX_TEMP_FIXED_MIPI_CLOCK
+	select QUALCOMM_BUGFIX_INTR_VIDEO_DONE_FOR_VIDEO_MODE_PANEL
+	select QUALCOMM_BUGFIX_SET_CLK_RATE_ON_CSS
+	select QUALCOMM_MP3_LCDOFF_CURRENT_PATCH
+	select QUALCOMM_DEVICES_GPU_BROKEN_IMG_PATCH
+	select QUALCOMM_BUGFIX_MIRACAST_RESET	
+	select QUALCOMM_BUGFIX_BLUESCREEN_ENCRYPTION
+	select QUALCOMM_BUGFIX_MDP_IOMMU_PAGEFAULT
+endif
+
+if MACH_MSM8974_EF60S
+config DEFINE_LIST_EF60S
+        bool
+        default y
+	select F_SKYDISP_CABC_CONTROL
+       select F_SKYDISP_SHARP_FHD_VIDEO_COMMON
+       select F_SKYDISP_SHARPNESS_CTRL
+       select F_SKYDISP_BACKLIGHT_CMDS_CTL
+	select QUALCOMM_BUGFIX_TEMP_FIXED_MIPI_CLOCK
+	select QUALCOMM_BUGFIX_INTR_VIDEO_DONE_FOR_VIDEO_MODE_PANEL
+	select QUALCOMM_BUGFIX_SET_CLK_RATE_ON_CSS
+	select QUALCOMM_MP3_LCDOFF_CURRENT_PATCH
+	select QUALCOMM_DEVICES_GPU_BROKEN_IMG_PATCH
+	select QUALCOMM_BUGFIX_BLUESCREEN_ENCRYPTION
+	select QUALCOMM_BUGFIX_MDP_IOMMU_PAGEFAULT       
+endif
+
+if MACH_MSM8974_EF61K
+config DEFINE_LIST_EF61K
+        bool
+        default y
+	select F_SKYDISP_CABC_CONTROL
+        select F_SKYDISP_SHARP_FHD_VIDEO_COMMON
+        select F_SKYDISP_SHARPNESS_CTRL
+        select F_SKYDISP_BACKLIGHT_CMDS_CTL
+	select QUALCOMM_BUGFIX_TEMP_FIXED_MIPI_CLOCK
+	select QUALCOMM_BUGFIX_INTR_VIDEO_DONE_FOR_VIDEO_MODE_PANEL
+	select QUALCOMM_BUGFIX_SET_CLK_RATE_ON_CSS
+	select QUALCOMM_MP3_LCDOFF_CURRENT_PATCH
+	select QUALCOMM_DEVICES_GPU_BROKEN_IMG_PATCH
+	select QUALCOMM_BUGFIX_BLUESCREEN_ENCRYPTION
+	select QUALCOMM_BUGFIX_MDP_IOMMU_PAGEFAULT       	
+endif
+
+if MACH_MSM8974_EF62L
+config DEFINE_LIST_EF62L
+        bool
+        default y
+	select F_SKYDISP_CABC_CONTROL
+       select F_SKYDISP_SHARP_FHD_VIDEO_COMMON
+       select F_SKYDISP_SHARPNESS_CTRL
+       select F_SKYDISP_BACKLIGHT_CMDS_CTL
+	select QUALCOMM_BUGFIX_TEMP_FIXED_MIPI_CLOCK
+	select QUALCOMM_BUGFIX_INTR_VIDEO_DONE_FOR_VIDEO_MODE_PANEL
+	select QUALCOMM_BUGFIX_SET_CLK_RATE_ON_CSS
+	select QUALCOMM_MP3_LCDOFF_CURRENT_PATCH
+	select QUALCOMM_DEVICES_GPU_BROKEN_IMG_PATCH
+	select QUALCOMM_BUGFIX_BLUESCREEN_ENCRYPTION
+	select QUALCOMM_BUGFIX_MDP_IOMMU_PAGEFAULT       
+endif
+
+if MACH_MSM8974_NAMI
+config DEFINE_LIST_NAMI
+        bool
+        default y
+	select QUALCOMM_BUGFIX_TEMP_FIXED_MIPI_CLOCK
+	select F_SKYDISP_SHARP_FHD_CMD_COMMON
+	select QUALCOMM_DYNAMIC_PLL_PATCH
+
+endif
+
+##############################################################
+##############################################################
+#               PANTECH  FEARTURE                 	     # 
+#							     #
+##############################################################
+##############################################################
+config F_SKYDISP_QBUG_FIX_BACKLIGHT
+        bool
+
+config F_SKYDISP_BOOT_LOGO_IN_KERNEL
+        bool
+
+config F_SKYDISP_NO_CURSOR_IN_BOOT
+        bool
+        
+config F_SKYDISP_LCD_RESET
+        bool
+
+config F_SKYDISP_LCD_FORCE_ONOFF
+        bool
+
+config F_SKYDISP_SMART_DIMMING
+        bool
+        
+config F_SKYDISP_FORCE_ENCRYPTION_OFF
+        bool
+##############################################################
+# owner  : p13832   seunghwa_ji       
+# date    : 2013.04.11 
+# PLM    : 
+# Case  :       
+# Description : it is for cabc control
+##############################################################
+config F_SKYDISP_CABC_CONTROL
+	bool
+
+##############################################################
+# owner  : p13832 seunghwa_ji         
+# date    : 2013.04.18 
+# PLM    : 
+# Case  :       
+# Description : it is for splash screen bug fix
+##############################################################
+config F_SKYDISP_SPLASH_WLED_BUGFIX
+	bool
+
+##############################################################
+# owner  : p13832 seunghwa_ji         
+# date    : 2013.04.18 
+# PLM    : 
+# Case  :       
+# Description :  it is for shutdown, when display off
+##############################################################
+config F_SKYDISP_SHUTDOWN_BUGFIX
+	bool
+
+##############################################################
+# owner  : p13832 seunghwa_ji         
+# date    : 2013.04.19 
+# PLM    : 
+# Case  :       
+# Description :  it's for backlight debugging
+##############################################################
+config F_SKYDISP_BACKLIGHT_DEBUG
+	bool
+
+##############################################################
+# owner  : p13832 seunghwa_ji         
+# date    : 2013.04.29 
+# PLM    : 
+# Case  :       
+# Description :  it's to keep the backlight from LK to kernel 
+##############################################################
+config F_SKYDISP_KEEP_BACKLIGHT_TO_KERNEL
+	bool
+
+##############################################################
+# owner  : p13832 seunghwa_ji         
+# date    : 2013.04.30
+# PLM    : 
+# Case  :       
+# Description :  it's for silentboot
+##############################################################
+config F_SKYDISP_SILENT_BOOT
+	bool
+
+##############################################################
+# owner  : p13447 shin jaegon    
+# date    : 2013.05.02 
+# PLM    : 
+# Case  :       
+# Description : Added codes for factory command ("FACTORY_SLEEP_ENABLE_I") 
+##############################################################
+config F_SKYDISP_FACTORY_SLEEP_ENABLE_I
+	bool
+
+##############################################################
+# owner  : p10443          
+# date    : 2013.05.23 
+# PLM    : 
+# Case  :       
+# Description : EF56/7/8/ model LCD common
+##############################################################
+config F_SKYDISP_SHARP_FHD_VIDEO_COMMON
+	bool
+
+##############################################################
+# owner  : p10443          
+# date    : 2013.06.27 
+# PLM    : 
+# Case  :       
+# Description : EF56/7/8/ sharpness control
+##############################################################
+config F_SKYDISP_SHARPNESS_CTRL
+	bool
+
+##############################################################
+# owner  : p13832    
+# date    : 2013.07.02 
+# PLM    : 
+# Case  :       
+# Description : LCD cmds Test
+##############################################################
+config F_SKYDISP_CMDS_CONTROL
+	bool
+
+##############################################################
+# owner  : p13832    
+# date    : 2013.08.19 
+# PLM    : 
+# Case  :       
+# Description : backlight on/off
+##############################################################
+config F_SKYDISP_BACKLIGHT_CMDS_CTL
+	bool
+
+##############################################################
+# owner  : p12226        
+# date    : 2013.08.28 
+# PLM    : 
+# Case  :  none
+# Description : mdp ab value adjusting 
+##############################################################
+config F_SKYDISP_ADJUST_MDP_BANDWIDTH
+	bool 
+	
+##############################################################
+##############################################################
+#               QUALCOMM FEARTURE                 	     # 
+#							     #
+##############################################################
+##############################################################
+
+##############################################################
+# owner  : p14974        
+# date    : 2013.08.13 
+# PLM    : EF59K_795 
+# Case  :  #01272112   
+# Description : Fixed coded for GPU fallback error
+##############################################################
+config F_SKYDISP_FIXGPU_FALLBACK_ERROR
+	bool
+	
+
+
+
+##############################################################
+# owner  : p10443          
+# date    : 2013.04.16 
+# PLM    : 
+# Case  :  #1129288     
+# Description : For temp fixed MIPI clock (854Mbps)
+##############################################################
+config QUALCOMM_BUGFIX_TEMP_FIXED_MIPI_CLOCK
+	bool
+
+##############################################################
+# owner  : p10443          
+# date    : 2013.05.31 
+# PLM    : 
+# Case  :  #1203415    
+# Description : For temp fixed MDP underrun 
+##############################################################
+config QUALCOMM_BUGFIX_TEMP_FIXED_MDP_UNDERRUN
+	bool
+	
+##############################################################
+# owner  : p13832        
+# date    : 2013.06.13 
+# PLM    : 
+# Case  :  #1213056    
+# Description : For dynamic pll patch
+##############################################################
+config QUALCOMM_DYNAMIC_PLL_PATCH
+	bool       
+	
+##############################################################
+# owner  : p12226        
+# date    : 2013.07.18 
+# PLM    : 
+# Case  :  #1244618 , #01241329
+# Description : For BWC SMP FIX (EF56S PLM3337, 2490)
+##############################################################
+config QUALCOMM_BUGFIX_BWC_SMP
+	bool 
+	default y
+
+##############################################################
+# owner  : p13447       
+# date   : 2013.07.30 
+# PLM    i None 
+# Case   : #1255776     
+# Description : For video mode panel, DSI_INTR_VIDEO_DONE irq only enabled when
+#		there is dcs command ready to be sent and disabled after dcs
+# 		command had been sent.
+##############################################################
+config QUALCOMM_BUGFIX_INTR_VIDEO_DONE_FOR_VIDEO_MODE_PANEL
+        bool
+
+##############################################################
+# owner  : p10443        
+# date    : 2013.07.31 
+# PLM    : 
+# Case  :  #1230427
+# Description : kgsl kmalloc out of memory 
+##############################################################
+config QUALCOMM_BUGFIX_KGSL_OOM
+	bool 
+	default y
+	
+##############################################################
+# owner  : p12226        
+# date    : 2013.08.07 
+# PLM    : none
+# Case  :  #01263959
+# Description : abnormal green colors when zooming Interlaced video clip (EF56S Divx certificate)
+##############################################################
+config QUALCOMM_BUGFIX_INTERLACED_GREEN
+	bool 
+	default y	
+
+##############################################################
+# owner  : p12226        
+# date    : 2013.08.13 
+# PLM    : none
+# Case  :  #01270073
+# Description : There is abnormal display for a short time during linux boot. 
+##############################################################
+config QUALCOMM_BUGFIX_SET_CLK_RATE_ON_CSS
+        bool                
+
+##############################################################
+# owner  : p10443        
+# date    : 2013.08.13 
+# PLM    : 
+# Case  :  #1268552
+# Description : MP3 LCD OFF power consumption issue 
+##############################################################
+config QUALCOMM_MP3_LCDOFF_CURRENT_PATCH
+	bool 
+	default y
+
+##############################################################
+# owner  : p13832        
+# date    : 2013.08.28 
+# PLM    : 
+# Case  :  #1279353
+# Description : GPU compostion broken image issue 
+##############################################################
+config QUALCOMM_DEVICES_GPU_BROKEN_IMG_PATCH
+	bool 
+	default y
+	
+##############################################################
+# owner  : p16008
+# date    : 2013.08.28 
+# PLM    : EF59K 917
+# Case  :  01277408     
+# Description : miracast reset issue.
+##############################################################
+config QUALCOMM_BUGFIX_MIRACAST_RESET
+	bool
+	
+##############################################################
+# owner  : p10443        
+# date    : 2013.10.01 
+# PLM    : none
+# Case  :  #01271430 (official patch)
+# Description : Skip sum bw of bimc if result of sum bw is a negative value. because "uint64_t" cannot handle negative value.
+#			 Negative value of "uint64_t" is too big. as a result, a current could be increased.			
+##############################################################
+config QUALCOMM_VOLTE_LCDOFF_CURRENT_PATCH		
+	bool	
+
+##############################################################
+# owner  : p10443        
+# date    : 2013.10.01 
+# PLM    : EF59S 2479
+# Case  :  #01314156
+# Description : MDP IOMMU PAGE FAULT (MDP underrun bluescreen)			
+##############################################################
+config QUALCOMM_MDP_IOMMU_PAGEFAULT_PATCH		
+	bool	
+
+##############################################################
+# owner  : p10443        
+# date    : 2013.10.29
+# PLM    : EF59K, EF60S/K/L
+# Case  :  #01321798
+# Description : UHD(3840*2160, 2160*3840) contents underrun in video play and AOT 			
+##############################################################
+config QUALCOMM_BUGFIX_UHD_UNDERRUN		
+	bool		
+
+##############################################################
+# owner  : p10443        
+# date    : 2013.11.04
+# PLM    : EF60S PLM601
+# Case  :  
+# Description : Surfaceflinger pending cpu 90%  framework reset 			
+##############################################################
+config QUALCOMM_BUGFIX_SURFACEFLINGER_PENDING		
+	bool		
+	
+##############################################################
+# owner  : p10443        
+# date    : 2013.11.21
+# PLM    : 
+# Case  :  #01359863
+# Description : The bluescreen occurs at the start of encryption.			
+##############################################################
+config QUALCOMM_BUGFIX_BLUESCREEN_ENCRYPTION		
+	bool		
+
+##############################################################
+# owner  : p10443        
+# date    : 2013.12.12
+# PLM    : 
+# Case  :  #01385459
+# Description : About MDP IOMMU pagefault issue			
+##############################################################
+config QUALCOMM_BUGFIX_MDP_IOMMU_PAGEFAULT		
+	bool		
+
+endif

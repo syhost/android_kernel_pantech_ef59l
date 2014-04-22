@@ -1,0 +1,125 @@
+/*
+ * Copyright (c) 2012-2013, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+&soc {
+	i2c_4: i2c@f9927000 { /* BLSP1 QUP5 */
+		cell-index = <4>;
+		compatible = "qcom,i2c-qup";
+		#address-cells = <1>;
+		#size-cells = <0>;
+		reg-names = "qup_phys_addr";
+		reg = <0xf9927000 0x1000>;
+		interrupt-names = "qup_err_intr";
+		interrupts = <0 99 0>;
+		qcom,i2c-bus-freq = <100000>;
+		qcom,i2c-src-freq = <50000000>;
+		qcom,sda-gpio = <&msmgpio 25 0>;
+		qcom,scl-gpio = <&msmgpio 26 0>;
+	};
+ 	i2c@f9927000 {		
+ 		actuator2: qcom,actuator@70 {			
+	 		compatible = "qcom,actuator";			
+	 		reg = <0x70>;			
+	 		cell-index = <1>;			
+	 		gpios = <&msmgpio 25 0>,
+	 		<&msmgpio 26 0>;			
+	 		qcom,gpio-tbl-num = <0 1>;
+	 		qcom,gpio-tbl-flags = <1 1>;
+	 		qcom,gpio-tbl-label = "I2C_DATA0",
+	 		"I2C_CLK0";		
+ 		};	
+ 	};
+};
+
+&cci {
+    qcom,camera@20 {
+		compatible = "qcom,imx135";
+                reg = <0x20>;
+		qcom,slave-id = <0x20 0x0016 0x0135>;
+		qcom,csiphy-sd-index = <0>;
+		qcom,csid-sd-index = <0>;
+		qcom,actuator-src = <&actuator2>;
+		qcom,led-flash-src = <&led_flash0>;
+		qcom,mount-angle = <90>;
+		qcom,sensor-name = "imx135";
+		qcom,vdd-cx-supply = <&pm8841_s2>;
+		qcom,vdd-cx-name = "qcom,vdd-cx";
+		cam_rvdig-supply = <&pm8941_l3>;
+		cam_rvio-supply = <&pm8941_lvs2>;
+		cam_rvana-supply = <&pm8941_l17>;
+		cam_rvaf-supply = <&pm8941_l22>;
+		qcom,cam-vreg-name = "cam_rvdig", "cam_rvio", "cam_rvana", "cam_rvaf";
+		qcom,cam-vreg-type = <0 1 0 0>;
+		qcom,cam-vreg-min-voltage = <1150000 0 2850000 2850000>;
+		qcom,cam-vreg-max-voltage = <1150000 0 2850000 2850000>;
+		qcom,cam-vreg-op-mode = <105000 0 80000 100000>;		
+		qcom,gpio-no-mux = <0>;
+		gpios = <&msmgpio 15 0>,
+			<&msmgpio 90 0>,
+			<&msmgpio 96 0>;
+		qcom,gpio-reset = <1>;
+		qcom,gpio-wp = <2>;
+		qcom,gpio-req-tbl-num = <0 1 2>;
+		qcom,gpio-req-tbl-flags = <0 0 0>;
+		qcom,gpio-req-tbl-label = "CAMIF_MCLK",
+					  "CAM_RESET1",
+					     "CAM_WP";
+		qcom,gpio-set-tbl-num = <1 1 2 2>;
+		qcom,gpio-set-tbl-flags = <0 2 0 2>;
+		qcom,gpio-set-tbl-delay = <1000 3000 1000 3000>;
+		qcom,csi-lane-assign = <0x4320>;
+		qcom,csi-lane-mask = <0x1F>;
+		qcom,sensor-position = <0>;
+		qcom,sensor-mode = <0>;
+	        qcom,sensor-type = <0>;
+		qcom,cci-master = <0>;
+		status = "ok";
+	};
+
+	qcom,camera@6a {
+		compatible = "qcom,s5k6b2yx";
+                reg = <0x6a>;
+		qcom,slave-id = <0x6a 0x00 0x6b20>;
+		qcom,csiphy-sd-index = <2>;
+		qcom,csid-sd-index = <2>;
+		qcom,mount-angle = <270>;
+		qcom,sensor-name = "s5k6b2yx";
+		qcom,vdd-cx-supply = <&pm8841_s2>;
+		qcom,vdd-cx-name = "qcom,vdd-cx";
+		cam_vdig-supply = <&pm8941_lvs3>;
+		cam_vana-supply = <&pm8941_l23>;
+		qcom,cam-vreg-name = "cam_vdig", "cam_vana";
+		qcom,cam-vreg-type = <1 0>;
+		qcom,cam-vreg-min-voltage = <0 2850000>;
+		qcom,cam-vreg-max-voltage = <0 2850000>;
+		qcom,cam-vreg-op-mode = <0 80000>;
+		qcom,gpio-no-mux = <0>;
+		gpios = <&msmgpio 17 0>,
+			<&msmgpio 18 0>,
+			<&msmgpio 81 0>;
+		qcom,gpio-req-tbl-num = <0 1 2>;
+		qcom,gpio-req-tbl-flags = <0 0 0>;
+		qcom,gpio-req-tbl-label = "CAMIF_MCLK",
+					  "CAM_RESET1",
+					  "CAM_STBY";
+		qcom,gpio-reset = <1>;
+		qcom,gpio-standby = <2>;
+		qcom,csi-lane-assign = <0x4320>;
+		qcom,csi-lane-mask = <0x7>;
+		qcom,sensor-position = <1>;
+		qcom,sensor-mode = <1>;
+		qcom,sensor-type = <0>;
+		qcom,cci-master = <1>;
+		status = "ok";
+	};
+};

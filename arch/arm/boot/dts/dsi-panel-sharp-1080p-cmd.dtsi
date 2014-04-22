@@ -1,0 +1,133 @@
+/* Copyright (c) 2013, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+&soc {
+	qcom,mdss_dsi_sharp_1080p_cmd {
+		compatible = "qcom,mdss-dsi-panel";
+		label = "sharp 1080p command mode dsi panel";
+		status = "disable";
+		qcom,dsi-ctrl-phandle = <&mdss_dsi0>;
+		
+		qcom,te-gpio = <&msmgpio 12 0>;			/* LCD te */
+		qcom,rst-gpio = <&msmgpio 13 0>;			/* LCD Reset*/
+		qcom,vci-reg-gpio-p = <&msmgpio 14 0>;           /* LCD +-5.6V booster chip enable */
+		qcom,vci-reg-gpio-n = <&msmgpio 69 0>;           /* LCD +-5.6V booster chip enable */
+		qcom,bl-en-gpio = <&msmgpio 57 0>;	      /* Backlight enable*/
+		qcom,vddio-reg-gpio = <&msmgpio 65 0>;       /* LCD 1.8V requlator enable */
+		qcom,bl-swire-gpio = <&pm8941_gpios 36 0>;	      /* Intersil 1 wire */
+		
+		qcom,mdss-pan-res = <1080 1920>;
+		qcom,mdss-pan-bpp = <24>;
+		qcom,mdss-pan-clk-rate = <896000000>;
+		qcom,mdss-pan-dest = "display_1";
+		qcom,mdss-pan-porch-values = <48 12 152 4 2 4>;
+		qcom,mdss-pan-underflow-clr = <0xff>;
+		qcom,mdss-pan-bl-ctrl = "bl_ctrl_pwm";
+		qcom,pwm-period = <0x7d>;
+		qcom,mdss-pan-bl-levels = <1 255>;
+		qcom,mdss-pan-dsi-mode = <1>;
+		qcom,mdss-vsync-enable = <0>;
+		qcom,pwm-lpg-channel = <7>;
+		qcom,pwm-pmic-gpio = <&pm8941_gpios 36 0>;
+		qcom,mdss-hw-vsync-mode = <0>;
+		qcom,mdss-pan-dsi-h-pulse-mode = <0>;
+		qcom,mdss-pan-dsi-h-power-stop = <0 0 0>;
+		qcom,mdss-pan-dsi-bllp-power-stop = <1 1>;
+		qcom,mdss-pan-dsi-traffic-mode = <1>;
+		qcom,mdss-pan-dsi-dst-format = <8>;
+		qcom,mdss-pan-insert-dcs-cmd = <1>;
+		qcom,mdss-pan-wr-mem-continue = <0x3c>;
+		qcom,mdss-pan-wr-mem-start = <0x2c>;
+		qcom,mdss-pan-te-sel = <0>;
+		qcom,mdss-pan-dsi-vc = <0>;
+		qcom,mdss-pan-dsi-rgb-swap = <0>;
+		qcom,mdss-pan-dsi-data-lanes = <1 1 1 1>; /* 4 lanes */
+		qcom,mdss-pan-dsi-dlane-swap = <0>;
+		qcom,mdss-pan-dsi-t-clk = <0x36 0x1e>;
+		qcom,mdss-pan-dsi-stream = <0>;
+		qcom,mdss-pan-dsi-mdp-tr = <0x04>;
+		qcom,mdss-pan-dsi-dma-tr = <0x04>;
+		qcom,mdss-pan-dsi-frame-rate = <60>;
+		qcom,panel-phy-regulatorSettings = [07 09 03 00  /* Regualotor settings */ 
+						20 00 01];
+		qcom,panel-phy-timingSettings = [b0 23 1b 00 94 93
+						    1e 25 15 03 04 00];
+		qcom,panel-phy-strengthCtrl = [ff 06];
+		qcom,panel-phy-bistCtrl = [00 00 b1 ff           /* BIST Ctrl settings */
+					   00 00];
+		qcom,panel-phy-laneConfig = [00 00 00 00 00 00 00 01 97 /* lane0 config */
+					     00 00 00 00 05 00 00 01 97 /* lane1 config */
+					     00 00 00 00 0a 00 00 01 97 /* lane2 config */
+					     00 00 00 00 0f 00 00 01 97 /* lane3 config */
+					     00 c0 00 00 00 00 00 01 bb]; /* Clk ln config */	  
+					     
+		qcom,panel-on-cmds = [ 23 01 00 00 00 00 02 b0 00
+		
+							 05 01 00 00 00 00 02 00 00
+							 
+							 05 01 00 00 00 00 02 00 00
+							 
+							 23 01 00 00 00 00 02 d6 01
+							 
+							 29 01 00 00 00 00 08 b9 df 18 04 40 9f 1f 80
+							 29 01 00 00 00 00 08 ba df 18 04 40 9f 1f 80
+							 29 01 00 00 00 00 08 ce 00 01 08 c1 00 00 00
+							 39 01 00 00 00 00 03 51 0f ff
+							 23 01 00 00 00 00 02 53 00
+							 15 01 00 00 00 00 02 55 02
+							 39 01 00 00 00 00 03 5e 00 00
+
+							 23 01 00 00 00 00 02 b0 02
+							 05 01 00 00 c8 00 02 11 00
+							05 01 00 00 28 00 02 29 00];
+							
+		qcom,panel-on-final-cmds = [ 23 01 00 00 00 00 02 b0 00
+								   05 01 00 00 00 00 02 00 00
+							          05 01 00 00 00 00 02 00 00
+							          23 01 00 00 00 00 02 d6 01
+							 
+							 29 01 00 00 00 00 08 b9 07 90 1e 10 1e 32 ff
+							 29 01 00 00 00 00 18 ce 35 40 48 56 67 78 88 98 a7 b5 c3 d1 de e9 f2 fa ff 01 01 00 00 00 24
+							 29 01 00 00 00 00 1f c7 01 0A 10 19 29 39 45 56 3B 43 4F 5C 64 6C 75 01 0A 10 18 28 36 41 52 37 40 4D 5A 62 6A 74
+						 	 29 01 00 00 00 00 14 c8 01 00 FF 00 00 B7 00 00 FF 00 00 B7 00 00 FF 01 15 FF 9F
+						 	 29 01 00 00 00 00 02 d6 01
+						 	 
+							 39 01 00 00 00 00 02 51 FF
+							 23 01 00 00 00 00 02 53 00
+							 15 01 00 00 00 00 02 55 02
+							 39 01 00 00 00 00 02 5e 00 
+							 39 01 00 00 00 00 02 b3 04
+							 39 01 00 00 00 00 02 35 00
+							 23 01 00 00 00 00 02 b0 02];
+							
+		qcom,on-cmds-dsi-state = "DSI_LP_MODE";
+		
+		qcom,panel-off-cmds = [ 05 01 00 00 28 00 02 28 00
+					                05 01 00 00 8c 00 02 10 00];
+		qcom,off-cmds-dsi-state = "DSI_HS_MODE";
+
+
+		qcom,panel-on-sec-cmds = [05 01 00 00 28 00 02 29 00];
+		qcom,on-sec-cmds-dsi-state = "DSI_HS_MODE";
+							  
+	};
+	
+	mdss_dsi0: qcom,mdss_dsi@fd922800 {
+		compatible = "qcom,mdss-dsi-ctrl";
+		label = "MDSS DSI CTRL->0";
+		cell-index = <0>;
+		reg = <0xfd922800 0x600>;
+		vddio_rsp-supply = <&pm8941_l12>;
+		vdda-supply = <&pm8941_l2>;
+		qcom,mdss-fb-map = <&mdss_fb0>;
+	};	
+};

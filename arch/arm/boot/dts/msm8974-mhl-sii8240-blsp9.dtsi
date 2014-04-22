@@ -1,0 +1,31 @@
+/* 2013.06.24 LS2(p16008) file created CONFIG_FB_MSM_MDSS_HDMI_MHL_SII8240 */
+
+&soc {
+        i2c_9: i2c@f9965000 {
+		cell-index = <9>;
+		compatible = "qcom,i2c-qup";
+		reg = <0Xf9965000 0x1000>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+		reg-names = "qup_phys_addr";
+		interrupts = <0 103 0>;
+		interrupt-names = "qup_err_intr";
+		qcom,i2c-bus-freq = <100000>;
+		qcom,i2c-src-freq = <50000000>;
+		sii8240@72 {
+			compatible = "qcom,mhl-sii8240";
+			reg = <0x72>;
+			interrupt-parent = <&msmgpio>;
+			interrupts = <75 0x8>;
+			mhl-intr-gpio = <&msmgpio 75 0>;
+			mhl-pwr-gpio = <&msmgpio 78 0>;
+			mhl-rst-gpio = <&msmgpio 76 0>;
+			mhl-sw-gpio = <&msmgpio 85 0>;
+			mhl-usbid-gpio = <&pm8941_gpios 23 0>;			
+			avcc_12-supply = <&pm8941_l2>;
+			qcom,hdmi-tx-map = <&mdss_hdmi_tx>;
+		};	
+	};
+};
+
+

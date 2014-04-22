@@ -1,0 +1,11 @@
+config SII8240_MHL_TX 
+	tristate
+	prompt "Silicon Image Wolverine 60 to MHL tx"
+	depends on I2C 
+        default n 
+
+config MHL_RETRY_FULL
+	bool
+	depends on SII8240_MHL_TX
+        default n
+

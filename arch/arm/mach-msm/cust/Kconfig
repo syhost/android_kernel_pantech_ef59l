@@ -1,0 +1,366 @@
+if CUST_PANTECH_H
+
+#
+# PANTECH Cust feature section
+#
+
+if MACH_MSM8974_SVLTE
+config DEFINE_LIST_SVLTE
+        bool
+        default y
+        select PANTECH
+        select PANTECH_VERIZON
+        select ANDROID_PANTECH_USB_ABNORMAL_CHARGER_INFO
+        select PANTECH_ERR_CRASH_LOGGING
+        select PANTECH_SND
+endif
+
+if MACH_MSM8974_CSFB
+config DEFINE_LIST_CSFB
+        bool
+        default y
+        select PANTECH
+        select PANTECH_ATNT
+        select ANDROID_PANTECH_USB_ABNORMAL_CHARGER_INFO
+        select PANTECH_SND
+endif
+
+if MACH_MSM8974_EF56S
+config DEFINE_LIST_EF56S
+        bool
+        default y
+        select PANTECH
+        select PANTECH_DOMESTIC
+        select ANDROID_PANTECH_USB_ABNORMAL_CHARGER_INFO
+        select PANTECH_ERR_CRASH_LOGGING
+	select PANTECH_FS_AUTO_REPAIR
+        select ANDROID_PANTECH_USB_OTG
+        select ANDROID_PANTECH_USB_OTG_INTENT
+        select ANDROID_PANTECH_USB_HIGH_SPEED_ONLY
+        select NLS_UTF8
+        select PANTECH_SND
+        select PANTECH_SND_QCOM_PATCH
+        select PANTECH_SND_BOOTUP_HEADSET_INFO
+        select PANTECH_SND_NXP
+        select PANTECH_SND_EF56S_HW
+endif
+
+if MACH_MSM8974_EF57K
+config DEFINE_LIST_EF57K
+        bool
+        default y
+        select PANTECH
+        select PANTECH_DOMESTIC
+        select ANDROID_PANTECH_USB_ABNORMAL_CHARGER_INFO
+        select PANTECH_ERR_CRASH_LOGGING
+	select PANTECH_FS_AUTO_REPAIR
+        select ANDROID_PANTECH_USB_OTG
+        select ANDROID_PANTECH_USB_OTG_INTENT
+        select ANDROID_PANTECH_USB_HIGH_SPEED_ONLY
+        select PANTECH_SND
+        select PANTECH_SND_QCOM_PATCH
+        select PANTECH_SND_NXP
+endif
+
+if MACH_MSM8974_EF58L
+config DEFINE_LIST_EF58L
+        bool
+        default y
+        select PANTECH
+        select PANTECH_DOMESTIC
+        select ANDROID_PANTECH_USB_ABNORMAL_CHARGER_INFO
+        select PANTECH_ERR_CRASH_LOGGING
+	select PANTECH_FS_AUTO_REPAIR
+        select ANDROID_PANTECH_USB_OTG
+        select ANDROID_PANTECH_USB_OTG_INTENT
+        select ANDROID_PANTECH_USB_HIGH_SPEED_ONLY
+        select PANTECH_SND
+        select PANTECH_SND_QCOM_PATCH
+        select PANTECH_SND_NXP
+endif
+
+if MACH_MSM8974_EF59S
+config DEFINE_LIST_EF59S
+        bool
+        default y
+        select PANTECH
+        select PANTECH_DOMESTIC
+        select ANDROID_PANTECH_USB_ABNORMAL_CHARGER_INFO
+        select F_SKYDISP_QBUG_FIX_BACKLIGHT
+        select F_SKYDISP_BOOT_LOGO_IN_KERNEL
+        select F_SKYDISP_NO_CURSOR_IN_BOOT
+        select F_SKYDISP_LCD_RESET
+        select F_SKYDISP_LCD_FORCE_ONOFF
+        select PANTECH_ERR_CRASH_LOGGING
+	select PANTECH_FS_AUTO_REPAIR
+        select ANDROID_PANTECH_USB_OTG
+        select ANDROID_PANTECH_USB_OTG_INTENT
+        select ANDROID_PANTECH_USB_HIGH_SPEED_ONLY
+        select NLS_UTF8
+        select PANTECH_SND
+        select PANTECH_SND_QCOM_PATCH
+        select PANTECH_SND_BOOTUP_HEADSET_INFO
+        select PANTECH_SND_NXP
+        select PANTECH_SND_EF59SKL_HW
+endif
+
+if MACH_MSM8974_EF59K
+config DEFINE_LIST_EF59K
+        bool
+        default y
+        select PANTECH
+        select PANTECH_DOMESTIC
+        select ANDROID_PANTECH_USB_ABNORMAL_CHARGER_INFO
+        select F_SKYDISP_QBUG_FIX_BACKLIGHT
+        select F_SKYDISP_BOOT_LOGO_IN_KERNEL
+        select F_SKYDISP_NO_CURSOR_IN_BOOT
+        select F_SKYDISP_LCD_RESET
+        select F_SKYDISP_LCD_FORCE_ONOFF
+        select PANTECH_ERR_CRASH_LOGGING
+	select PANTECH_FS_AUTO_REPAIR
+        select ANDROID_PANTECH_USB_OTG
+        select ANDROID_PANTECH_USB_OTG_INTENT
+        select ANDROID_PANTECH_USB_HIGH_SPEED_ONLY
+        select PANTECH_SND
+        select PANTECH_SND_QCOM_PATCH
+        select PANTECH_SND_NXP
+        select PANTECH_SND_EF59SKL_HW
+endif
+
+if MACH_MSM8974_EF59L
+config DEFINE_LIST_EF59L
+        bool
+        default y
+        select PANTECH
+        select PANTECH_DOMESTIC
+        select ANDROID_PANTECH_USB_ABNORMAL_CHARGER_INFO
+        select F_SKYDISP_QBUG_FIX_BACKLIGHT
+        select F_SKYDISP_BOOT_LOGO_IN_KERNEL
+        select F_SKYDISP_NO_CURSOR_IN_BOOT
+        select F_SKYDISP_LCD_RESET
+        select F_SKYDISP_LCD_FORCE_ONOFF
+        select PANTECH_ERR_CRASH_LOGGING
+	select PANTECH_FS_AUTO_REPAIR
+        select ANDROID_PANTECH_USB_OTG
+        select ANDROID_PANTECH_USB_OTG_INTENT
+        select ANDROID_PANTECH_USB_HIGH_SPEED_ONLY
+        select PANTECH_SND
+        select PANTECH_SND_QCOM_PATCH
+        select PANTECH_SND_NXP
+        select PANTECH_SND_EF59SKL_HW
+endif
+
+if MACH_MSM8974_EF60S
+config DEFINE_LIST_EF60S
+        bool
+        default y
+        select PANTECH
+        select PANTECH_DOMESTIC
+        select ANDROID_PANTECH_USB_ABNORMAL_CHARGER_INFO
+        select F_SKYDISP_QBUG_FIX_BACKLIGHT
+        select F_SKYDISP_BOOT_LOGO_IN_KERNEL
+        select F_SKYDISP_NO_CURSOR_IN_BOOT
+        select F_SKYDISP_LCD_RESET
+        select F_SKYDISP_LCD_FORCE_ONOFF
+        select PANTECH_ERR_CRASH_LOGGING
+	select PANTECH_FS_AUTO_REPAIR
+        select ANDROID_PANTECH_USB_OTG
+        select ANDROID_PANTECH_USB_OTG_INTENT
+        select ANDROID_PANTECH_USB_HIGH_SPEED_ONLY
+        select PANTECH_SND
+        select PANTECH_SND_QCOM_PATCH
+        select PANTECH_SND_BOOTUP_HEADSET_INFO
+        select PANTECH_SND_NXP
+        select PANTECH_SND_EF56S_HW
+endif
+
+if MACH_MSM8974_EF61K
+config DEFINE_LIST_EF61K
+        bool
+        default y
+        select PANTECH
+        select PANTECH_DOMESTIC
+        select ANDROID_PANTECH_USB_ABNORMAL_CHARGER_INFO
+        select F_SKYDISP_QBUG_FIX_BACKLIGHT
+        select F_SKYDISP_BOOT_LOGO_IN_KERNEL
+        select F_SKYDISP_NO_CURSOR_IN_BOOT
+        select F_SKYDISP_LCD_RESET
+        select F_SKYDISP_LCD_FORCE_ONOFF
+        select PANTECH_ERR_CRASH_LOGGING
+	select PANTECH_FS_AUTO_REPAIR
+        select ANDROID_PANTECH_USB_OTG
+        select ANDROID_PANTECH_USB_OTG_INTENT
+        select ANDROID_PANTECH_USB_HIGH_SPEED_ONLY
+        select PANTECH_SND
+        select PANTECH_SND_QCOM_PATCH
+        select PANTECH_SND_NXP
+        select PANTECH_SND_EF56S_HW
+endif
+
+if MACH_MSM8974_EF62L
+config DEFINE_LIST_EF62L
+        bool
+        default y
+        select PANTECH
+        select PANTECH_DOMESTIC
+        select ANDROID_PANTECH_USB_ABNORMAL_CHARGER_INFO
+        select F_SKYDISP_QBUG_FIX_BACKLIGHT
+        select F_SKYDISP_BOOT_LOGO_IN_KERNEL
+        select F_SKYDISP_NO_CURSOR_IN_BOOT
+        select F_SKYDISP_LCD_RESET
+        select F_SKYDISP_LCD_FORCE_ONOFF
+        select PANTECH_ERR_CRASH_LOGGING
+	select PANTECH_FS_AUTO_REPAIR
+        select ANDROID_PANTECH_USB_OTG
+        select ANDROID_PANTECH_USB_OTG_INTENT
+        select ANDROID_PANTECH_USB_HIGH_SPEED_ONLY
+        select PANTECH_SND
+        select PANTECH_SND_QCOM_PATCH
+        select PANTECH_SND_QSOUND
+        select PANTECH_SND_EF56S_HW
+endif
+
+if MACH_MSM8974_NAMI
+config DEFINE_LIST_NAMI
+        bool
+        default y
+        select PANTECH
+        select PANTECH_JAPAN_PMC
+        select ANDROID_PANTECH_USB_ABNORMAL_CHARGER_INFO
+        select PANTECH_ERR_CRASH_LOGGING
+        select PANTECH_FS_AUTO_REPAIR
+        select ANDROID_PANTECH_USB_OTG_INTENT
+        select ANDROID_PANTECH_USB_HIGH_SPEED_ONLY
+        select NLS_UTF8
+        select PANTECH_SND
+        select PANTECH_SND_QCOM_PATCH
+        select PANTECH_SND_BOOTUP_HEADSET_INFO
+endif
+
+config PANTECH
+  bool
+  
+config PANTECH_FS_AUTO_REPAIR
+	bool
+	
+config PANTECH_VERIZON
+  bool
+  
+config PANTECH_ATNT
+  bool
+  
+config PANTECH_JAPAN
+  bool
+  
+config PANTECH_JAPAN_PMC
+  bool
+  
+config PANTECH_DOMESTIC
+  bool
+
+config PANTECH_ERR_CRASH_LOGGING
+  bool
+
+config PANTECH_CHARGER
+	bool
+	select PANTECH_CHARGER_OFFLINE
+config PANTECH_CHARGER_OFFLINE
+	bool
+
+comment "PANTECH USB Driver"
+config ANDROID_PANTECH_USB
+  bool "PANTECH USB"
+  default y
+	 help
+     Support Pantech USB
+
+config ANDROID_PANTECH_USB_MANAGER
+  depends on ANDROID_PANTECH_USB
+  bool "PANTECH USB Manager"
+  default y
+  help
+     Support Pantech USB Manager
+
+config ANDROID_PANTECH_USB_CDFREE
+  depends on ANDROID_PANTECH_USB && (PANTECH_VERIZON || PANTECH_DOMESTIC)
+  bool "PANTECH USB Cdfree"
+  default y
+	 help
+     Support Pantech USB Cdfree 
+
+config ANDROID_PANTECH_USB_FACTORY_CABLE
+  depends on ANDROID_PANTECH_USB
+  bool "PANTECH USB FACTORY CABLE"
+  default y
+	 help
+     Support Pantech USB
+
+config ANDROID_PANTECH_USB_OTG
+  bool "PANTECH USB OTG"
+  default n
+	 help
+     Support Pantech USB OTG
+
+config ANDROID_PANTECH_USB_OTG_INTENT
+  depends on ANDROID_PANTECH_USB_OTG
+  bool "PANTECH USB OTG Intent"
+  default n
+	 help
+     Support Pantech USB OTG Intent
+
+config ANDROID_PANTECH_USB_OTG_CHARGER_SUSPEND
+  depends on ANDROID_PANTECH_USB
+  bool "PANTECH USB OTG Charger suspend"
+  default n
+	 help
+     Support Pantech USB OTG Intent
+
+config ANDROID_PANTECH_USB_ABNORMAL_CHARGER_INFO
+ depends on ANDROID_PANTECH_USB
+  bool "PANTECH USB Charger cable abnormal case"
+  default n
+	 help
+     Support Pantech USB
+
+config ANDROID_PANTECH_USB_HIGH_SPEED_ONLY
+  depends on ANDROID_PANTECH_USB
+  bool "PANTECH USB HIGH SPEED ONLY DEVICE"
+  default n
+
+# SOUND
+config PANTECH_SND
+  bool
+
+config PANTECH_SND_QCOM_PATCH
+  bool
+       
+config PANTECH_SND_BOOTUP_HEADSET_INFO
+  bool
+
+config PANTECH_SND_NXP
+  bool
+
+config PANTECH_SND_QSOUND
+  bool
+  
+config PANTECH_SND_EF56S_HW
+  bool
+
+config PANTECH_SND_EF59SKL_HW
+  bool  
+  
+config PANTECH_GPIO_SLEEP_CONFIG
+       bool "PANTECH GPIO SLEEP CONFIG"
+       default y
+
+source "arch/arm/mach-msm/cust/LCD/Kconfig"
+
+#
+# 20130725 lcj@LS3
+#
+config PANTECH_WLAN_DEBUG
+	   depends on WCNSS_CORE
+       bool "PANTECH WLAN DEBUG"
+       default y
+
+endif

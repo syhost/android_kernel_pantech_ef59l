@@ -1,0 +1,32 @@
+/* Copyright (c) 2013, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+/dts-v1/;
+
+/include/ "msm8974-v2.dtsi"
+/include/ "msm8974-ef56s.dtsi"
+/include/ "dsi-panel-renesas-1080p-video-pt.dtsi"
+/include/ "msm8974-dmb-spi-v1.dtsi"
+
+/ {
+	model = "Qualcomm MSM 8974v2 Pantech EF56S PT10";
+	compatible = "qcom,msm8974-ef56s", "qcom,msm8974";
+	qcom,msm-id = <126 561 0x20000>,
+		      <185 561 0x20000>,
+		      <186 561 0x20000>;
+};
+
+&soc {
+        serial@f991d000 {
+		status = "ok";
+	};
+};

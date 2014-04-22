@@ -1,0 +1,113 @@
+/* Copyright (c) 2012, Code Aurora Forum. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+/ {
+
+	qcom,mdss_dsi_renesas_fhd_video {
+		compatible = "qcom,mdss-dsi-panel";
+		label = "renesas fhd video mode dsi panel";
+		status = "disable";
+		qcom,dsi-ctrl-phandle = <&mdss_dsi0>;
+		qcom,enable-reg-gpio = <&msmgpio 34 0>;
+		qcom,rst-gpio = <&msmgpio 13 0>;
+		qcom,bl_en = <&msmgpio 57 0>;		
+		qcom,mdss-pan-res = <1080 1920>;
+		qcom,mdss-pan-bpp = <24>;
+		qcom,mdss-pan-dest = "display_1";
+		qcom,mdss-pan-porch-values = <50 10 100 4 2 4>;    /* h_back, h_pulse, h_front  v_back, v_pulse, v_front */
+		qcom,mdss-pan-underflow-clr = <0xff>;
+		qcom,mdss-pan-bl-ctrl = "bl_ctrl_wled";
+		qcom,mdss-pan-bl-levels = <1 4095>; 
+		qcom,mdss-pan-dsi-mode = <0>;
+		qcom,mdss-pan-dsi-h-pulse-mode = <1>;                /* hsa_he */ 
+		/*qcom,mdss-pan-dsi-h-power-stop = <0 1 1>; */          /* hbp, hsa, hfp */
+		qcom,mdss-pan-dsi-h-power-stop = <0 0 0>;           /* hbp, hsa, hfp */
+		/*qcom,mdss-pan-dsi-bllp-power-stop = <1 0>;  */        /* bllp, eof_bllp */
+		qcom,mdss-pan-dsi-bllp-power-stop = <1 1>;          /* bllp, eof_bllp */
+		qcom,mdss-pan-dsi-traffic-mode = <1>;
+		qcom,mdss-pan-dsi-dst-format = <3>;
+		qcom,mdss-pan-dsi-vc = <0>;
+		qcom,mdss-pan-dsi-rgb-swap = <0>;
+		qcom,mdss-pan-dsi-data-lanes = <1 1 1 1>;
+		qcom,mdss-pan-dsi-dlane-swap = <0>;
+		qcom,mdss-pan-dsi-t-clk = <0x36 0x1e>;                /* clk_pre, clk_post */
+		qcom,mdss-pan-dsi-stream = <0>;
+		qcom,mdss-pan-dsi-mdp-tr = <0x0>;
+		qcom,mdss-pan-dsi-dma-tr = <0x04>;
+		qcom,mdss-pan-dsi-frame-rate = <60>;
+		qcom,panel-phy-regulatorSettings = [07 09 03 00  /* Regualotor settings */ 
+						20 00 01];
+		qcom,panel-phy-timingSettings = [b0 23 1b 00 94 93
+						    1e 25 15 03 04 00];
+		qcom,panel-phy-strengthCtrl = [ff 06];
+
+		qcom,panel-phy-bistCtrl = [00 00 b1 ff           /* BIST Ctrl settings */
+					   00 00];
+		qcom,panel-phy-laneConfig = [00 00 00 00 00 00 00 01 97 /* lane0 config */
+					     00 00 00 00 05 00 00 01 97 /* lane1 config */
+					     00 00 00 00 0a 00 00 01 97 /* lane2 config */
+					     00 00 00 00 0f 00 00 01 97 /* lane3 config */
+					     00 c0 00 00 00 00 00 01 bb]; /* Clk ln config */	   
+					     
+		qcom,panel-on-cmds = [13 01 00 00 00 02 b0 00
+					05 01 00 00 00 02 00 00
+                                   05 01 00 00 00 02 00 00
+                                   
+					29 01 00 00 00 08 
+						b9 00 30 18 18 9f 1f 80
+
+					29 01 00 00 00 08 
+						ba 00 30 04 40 9f 1f d7		
+
+					29 01 00 00 00 1a 
+						b8 18 80 18 18 cf 1f 00 0c 12 
+						6c 11 6c 12 0c 12 da 6d ff ff
+						10 67 a3 db fb ff		
+
+					13 01 00 00 00 02 d6 01
+					
+					13 01 00 00 00 02 b0 03
+					
+					39 01 00 00 00 03 51 00 ff
+
+					15 01 00 00 00 02 53 24	
+
+					15 01 00 00 00 02 55 03	
+					
+					05 01 00 00 00 02 29 00
+					
+					05 01 00 00 78 02 11 00];
+
+/* EF56_57_58 LCD initial code*/
+/*
+		qcom,panel-on-cmds = [39 01 00 00 00 03 51 0f ff
+
+					15 01 00 00 00 02 53 2c	
+
+					15 01 00 00 00 02 55 01	
+					
+					05 01 00 00 00 02 29 00
+					
+					05 01 00 00 78 02 11 00];
+*/
+		qcom,on-cmds-dsi-state = "DSI_LP_MODE";
+		qcom,panel-off-cmds = [
+					05 01 00 00 14 02 28 00
+
+					05 01 00 00 50 02 10 00];
+		qcom,off-cmds-dsi-state = "DSI_HS_MODE";
+
+		qcom,panel-cabc-cmds = [15 01 00 00 00 02 55 01];
+		qcom,cabc-cmds-dsi-state = "DSI_HS_MODE";
+	};
+};
+
